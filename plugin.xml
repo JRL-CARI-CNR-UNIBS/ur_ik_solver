@@ -1,0 +1,47 @@
+<library path="lib/libur3_ik_solver">
+  <class name="ik_solver/Ur3IkSolver" type="ik_solver::UrIkSolver" base_class_type="ik_solver::IkSolver">
+		<description>
+			UR3 IK solver
+		</description>
+	</class>
+</library>
+
+<library path="lib/libur3e_ik_solver">
+  <class name="ik_solver/Ur3eIkSolver" type="ik_solver::UrIkSolver" base_class_type="ik_solver::IkSolver">
+		<description>
+			UR3e IK solver
+		</description>
+	</class>
+</library>
+
+<library path="lib/libur5_ik_solver">
+  <class name="ik_solver/Ur5IkSolver" type="ik_solver::UrIkSolver" base_class_type="ik_solver::IkSolver">
+		<description>
+			UR5 IK solver
+		</description>
+	</class>
+</library>
+
+<library path="lib/libur5e_ik_solver">
+  <class name="ik_solver/Ur5eIkSolver" type="ik_solver::UrIkSolver" base_class_type="ik_solver::IkSolver">
+		<description>
+			UR5e IK solver
+		</description>
+	</class>
+</library>
+
+<library path="lib/libur10_ik_solver">
+  <class name="ik_solver/Ur10IkSolver" type="ik_solver::UrIkSolver" base_class_type="ik_solver::IkSolver">
+		<description>
+			UR10 IK solver
+		</description>
+	</class>
+</library>
+
+<library path="lib/libur10e_ik_solver">
+  <class name="ik_solver/Ur10eIkSolver" type="ik_solver::UrIkSolver" base_class_type="ik_solver::IkSolver">
+		<description>
+			UR10e IK solver
+		</description>
+	</class>
+</library>
