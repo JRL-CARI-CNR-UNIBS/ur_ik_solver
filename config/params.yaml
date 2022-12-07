@@ -1,6 +1,6 @@
 type: ik_solver/Ur10eIkSolver
 base_frame: base_link #world # base frame of the chain
-flange_frame: flange # end frame of the chain
+flange_frame: tool0 # end frame of the chain
 
 tool_frame: open_tip # destination frame of the IK (it should be rigid attached to flange_frame)
 desired_solutions: 32 # number of desired solution
