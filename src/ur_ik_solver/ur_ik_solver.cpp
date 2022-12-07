@@ -45,7 +45,7 @@ inline bool UrIkSolver::customConfig()
   }
   if (flange_frame_.find("tool0") == std::string::npos)
   {
-      ROS_ERROR("%s/flange_frame should be set equal to [PREFIX]tool0 instead of %s",nh_.getNamespace().c_str(),tool_frame_.c_str());
+      ROS_ERROR("%s/flange_frame should be set equal to [PREFIX]tool0 instead of %s",nh_.getNamespace().c_str(),flange_frame_.c_str());
       return false;
   }
 
