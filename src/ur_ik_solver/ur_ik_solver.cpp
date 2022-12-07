@@ -38,6 +38,23 @@ namespace ik_solver
 
 inline bool UrIkSolver::customConfig()
 {
+  if (base_frame_.find("base_link") == std::string::npos)
+  {
+      ROS_ERROR("%s/base_frame should be set equal to [PREFIX]base_link instead of %s",nh_.getNamespace().c_str(),base_frame_.c_str());
+      return false;
+  }
+  if (flange_frame_.find("tool0") == std::string::npos)
+  {
+      ROS_ERROR("%s/flange_frame should be set equal to [PREFIX]tool0 instead of %s",nh_.getNamespace().c_str(),tool_frame_.c_str());
+      return false;
+  }
+
+  Eigen::AngleAxisd link6_ee(0.5*M_PI,Eigen::Vector3d::UnitZ());
+  Eigen::AngleAxisd link6_tool0(-0.5*M_PI,Eigen::Vector3d::UnitX());
+
+
+  T_flange_ee_.setIdentity();
+  T_flange_ee_.linear()=link6_tool0.toRotationMatrix().inverse()*link6_ee.toRotationMatrix();
   return true;
 }
 
@@ -50,7 +67,9 @@ std::vector<Eigen::VectorXd> UrIkSolver::getIk(const Eigen::Affine3d& T_base_fla
   double q_sols_array[n_sol*n_joints];
   std::vector<Eigen::VectorXd> q_sols;
   // From Affine3d Column-major to row-major
-  Eigen::Transform<double,3,Eigen::Affine,Eigen::RowMajor> T_base_flange_rm = T_base_flange;
+
+  Eigen::Affine3d T_base_ee=T_base_flange*T_flange_ee_;
+  Eigen::Transform<double,3,Eigen::Affine,Eigen::RowMajor> T_base_flange_rm = T_base_ee;
 
   int q_sols_found = ur_kinematics::inverse(T_base_flange_rm.data(), q_sols_array);
 

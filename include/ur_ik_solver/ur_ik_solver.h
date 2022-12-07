@@ -51,6 +51,8 @@ protected:
   virtual bool customConfig() override;
   std::vector<Eigen::VectorXd> getMultiplicity(const Eigen::VectorXd &q);
 
+
+  Eigen::Affine3d T_flange_ee_;
   const unsigned int n_joints = 6;
   const unsigned int n_sol = 8;
 
