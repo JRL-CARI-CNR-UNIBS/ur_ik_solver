@@ -49,7 +49,6 @@ public:
                                      const int& max_stall_iterations) override;
 protected:
   virtual bool customConfig() override;
-  std::vector<Eigen::VectorXd> getMultiplicity(const Eigen::VectorXd &q);
 
 
   Eigen::Affine3d T_flange_ee_;
