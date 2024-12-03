@@ -28,14 +28,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #pragma once
 
-#include <ros/ros.h>
-#include <tf/transform_listener.h>
+#include <rclcpp/rclcpp.hpp>
 #include <Eigen/Geometry>
-#include <ik_solver_msgs/GetIk.h>
-#include <ik_solver_msgs/GetIkArray.h>
-#include <tf_conversions/tf_eigen.h>
-#include <eigen_conversions/eigen_msg.h>
-#include <ik_solver/ik_solver_base_class.h>
+#include <ik_solver/ik_solver.hpp>
 
 // #define TOLERANCE 1e-3
 namespace ik_solver
@@ -43,12 +38,15 @@ namespace ik_solver
 class UrIkSolver: public IkSolver
 {
 public:
-  virtual std::vector<Eigen::VectorXd> getIk(const Eigen::Affine3d& T_base_flange,
+  virtual Solutions getIk(const Eigen::Affine3d& T_base_flange,
                                      const std::vector<Eigen::VectorXd> & seeds,
                                      const int& desired_solutions,
-                                     const int& max_stall_iterations) override;
+                                     const int& min_stall_iterations = -1,
+                                     const int& max_stall_iterations = -1) override;
+
+  virtual Eigen::Affine3d getFK(const Configuration& s) override;
 protected:
-  virtual bool customConfig() override;
+  virtual bool config(const std::string& param_ns = "") override;
 
 
   Eigen::Affine3d T_flange_ee_;

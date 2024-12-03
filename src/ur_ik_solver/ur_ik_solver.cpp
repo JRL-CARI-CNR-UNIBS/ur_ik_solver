@@ -26,9 +26,9 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#include <ur_ik_solver/ur_ik_solver.h>
-#include <ur_kinematics/ur_kin.h>
-#include <pluginlib/class_list_macros.h>
+#include <ur_ik_solver/ur_ik_solver.hpp>
+#include <ur_ik_solver/ur_kinematics/ur_kin.h>
+#include <pluginlib/class_list_macros.hpp>
 
 PLUGINLIB_EXPORT_CLASS(ik_solver::UrIkSolver, ik_solver::IkSolver)
 
@@ -36,16 +36,16 @@ PLUGINLIB_EXPORT_CLASS(ik_solver::UrIkSolver, ik_solver::IkSolver)
 namespace ik_solver
 {
 
-inline bool UrIkSolver::customConfig()
+bool UrIkSolver::config(const std::string& /**/)
 {
   if (base_frame_.find("base_link") == std::string::npos)
   {
-      ROS_ERROR("%s/base_frame should be set equal to [PREFIX]base_link instead of %s",nh_.getNamespace().c_str(),base_frame_.c_str());
+      RCLCPP_ERROR(rclcpp::get_logger("ur_ik_solver"), "base_frame should be set equal to [PREFIX]base_link instead of %s", base_frame_.c_str());
       return false;
   }
   if (flange_frame_.find("tool0") == std::string::npos)
   {
-      ROS_ERROR("%s/flange_frame should be set equal to [PREFIX]tool0 instead of %s",nh_.getNamespace().c_str(),flange_frame_.c_str());
+      RCLCPP_ERROR(rclcpp::get_logger("ur_ik_solver"), "flange_frame should be set equal to [PREFIX]tool0 instead of %s", flange_frame_.c_str());
       return false;
   }
 
@@ -59,10 +59,11 @@ inline bool UrIkSolver::customConfig()
 }
 
 
-std::vector<Eigen::VectorXd> UrIkSolver::getIk(const Eigen::Affine3d& T_base_flange,
-                                                   const std::vector<Eigen::VectorXd> & seeds,
+Solutions UrIkSolver::getIk(const Eigen::Affine3d& T_base_flange,
+                                                   const Configurations& seeds,
                                                    const int& desired_solutions,
-                                                   const int& max_stall_iterations)
+                                                   const int& /*min_stall_iterations*/,
+                                                   const int& /*max_stall_iterations*/)
 {
   double q_sols_array[n_sol*n_joints];
   std::vector<Eigen::VectorXd> q_sols;
@@ -78,15 +79,27 @@ std::vector<Eigen::VectorXd> UrIkSolver::getIk(const Eigen::Affine3d& T_base_fla
   {
     tmp_sols.push_back(Eigen::Map<Eigen::VectorXd>(q_sols_array+idx*n_joints,n_joints,1));
   }
-  q_sols = getMultiplicity(tmp_sols);
+  q_sols = getMultiplicity(tmp_sols, ub(), lb(), {1,1,1,1,1,1});
   for(std::vector<Eigen::VectorXd>::iterator it = q_sols.begin(); it != q_sols.end();)
   {
-    if(outOfBound(*it))
+    std::vector<int> oob = outOfBound(*it, ub(), lb());
+    if(std::all_of(oob.begin(), oob.end(), [](int v){return bool(v);}))
       it = q_sols.erase(it);
     else
       ++it;
   }
-  return q_sols;
+  Solutions sols;
+  sols.configurations() = q_sols;
+  return sols;
+}
+
+Eigen::Affine3d getFK(const Configuration& s)
+{
+  double T[16];
+  Eigen::Transform<double, 3, Eigen::Affine, Eigen::RowMajor> FK;
+  ur_kinematics::forward(s.data(), T);
+  FK.matrix() = Eigen::Map<Eigen::Matrix4d, Eigen::RowMajor>(T);
+  return FK;
 }
 
 }   // end namespace ik_solver

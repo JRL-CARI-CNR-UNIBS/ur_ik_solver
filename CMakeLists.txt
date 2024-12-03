@@ -1,108 +1,40 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.16)
 project(ur_ik_solver)
 
-
+set(CMAKE_BUILD_TYPE Debug)
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 find_package(Eigen3 3.3 REQUIRED NO_MODULE)
 
-find_package(catkin REQUIRED COMPONENTS
-  eigen_conversions
-  ik_solver_msgs
-  ur_kinematics
-  roscpp
-  tf_conversions
+find_package(ament_cmake REQUIRED)
+find_package(ik_solver   REQUIRED)
+
+add_library(ur5_ik_solver SHARED
+  src/ur_ik_solver/ur_ik_solver.cpp
+  src/ur_ik_solver/ur_kinematics/ur_kin.cpp)
+target_include_directories(ur5_ik_solver PUBLIC
+  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+  "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
+ament_target_dependencies(ur5_ik_solver PUBLIC
+  rclcpp
   ik_solver
-)
+  pluginlib)
+target_compile_definitions(ur5_ik_solver PUBLIC UR5_PARAMS)
 
-catkin_package(
-  INCLUDE_DIRS include
-  LIBRARIES ur_ik_solver
-  CATKIN_DEPENDS eigen_conversions ur_kinematics ik_solver_msgs roscpp tf_conversions ik_solver
-#  DEPENDS system_lib
-)
+pluginlib_export_plugin_description_file(ik_solver plugin.xml)
 
-include_directories(
-  include
-  ${catkin_INCLUDE_DIRS}
-  ${EIGEN3_INCLUDE_DIRS}
-)
+install(TARGETS ur5_ik_solver
+        EXPORT export_ur5_ik_solver
+        LIBRARY DESTINATION lib
+        ARCHIVE DESTINATION lib
+        RUNTIME DESTINATION bin)
 
-# ur_kinematics individual libraries
-find_library(libur3_kin ur3_kin)
-find_library(libur5_kin ur5_kin)
-find_library(libur10_kin ur10_kin)
-find_library(libur3e_kin ur3e_kin)
-find_library(libur5e_kin ur5e_kin)
-find_library(libur10e_kin ur10e_kin)
-
-add_library(ur3_ik_solver
-  src/${PROJECT_NAME}/ur_ik_solver.cpp
-)
-add_dependencies(ur3_ik_solver ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-add_library(ur5_ik_solver
-  src/${PROJECT_NAME}/ur_ik_solver.cpp
-)
-add_dependencies(ur5_ik_solver ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-add_library(ur10_ik_solver
-  src/${PROJECT_NAME}/ur_ik_solver.cpp
-)
-add_dependencies(ur10_ik_solver ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-add_library(ur3e_ik_solver
-  src/${PROJECT_NAME}/ur_ik_solver.cpp
-)
-add_dependencies(ur3e_ik_solver ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-add_library(ur5e_ik_solver
-  src/${PROJECT_NAME}/ur_ik_solver.cpp
-)
-add_dependencies(ur5e_ik_solver ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-add_library(ur10e_ik_solver
-  src/${PROJECT_NAME}/ur_ik_solver.cpp
-)
-add_dependencies(ur10e_ik_solver ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-
- # add_executable(${PROJECT_NAME}_node src/node.cpp)
- #set_target_properties(${PROJECT_NAME}_node PROPERTIES OUTPUT_NAME ur_ik PREFIX "")
- #add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-target_link_libraries(ur3_ik_solver
-    ${libur3_kin} # Order matters!! Place before catkin_LIBRARIES to specify which UR is selected
-    ${catkin_LIBRARIES}
-)
-
-target_link_libraries(ur5_ik_solver
-    ${libur5_kin} # Order matters!!
-    ${catkin_LIBRARIES}
-)
-
-target_link_libraries(ur10_ik_solver
-    ${libur10_kin} # Order matters!!
-    ${catkin_LIBRARIES}
-)
-
-target_link_libraries(ur3e_ik_solver
-    ${libur3e_kin} # Order matters!!
-    ${catkin_LIBRARIES}    
-)
-
-target_link_libraries(ur5e_ik_solver
-    ${libur5e_kin} # Order matters!!
-    ${catkin_LIBRARIES}
-)
-
-target_link_libraries(ur10e_ik_solver
-    ${libur10e_kin} # Order matters!!
-    ${catkin_LIBRARIES}
-)
+ament_export_targets(export_ur5_ik_solver)
+ament_export_dependencies(ik_solver pluginlib)
+ament_package()
