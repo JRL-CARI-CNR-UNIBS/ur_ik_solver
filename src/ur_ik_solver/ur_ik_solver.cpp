@@ -38,16 +38,16 @@ namespace ik_solver
 
 bool UrIkSolver::config(const std::string& /**/)
 {
-  if (base_frame_.find("base_link") == std::string::npos)
-  {
-      RCLCPP_ERROR(rclcpp::get_logger("ur_ik_solver"), "base_frame should be set equal to [PREFIX]base_link instead of %s", base_frame_.c_str());
-      return false;
-  }
-  if (flange_frame_.find("tool0") == std::string::npos)
-  {
-      RCLCPP_ERROR(rclcpp::get_logger("ur_ik_solver"), "flange_frame should be set equal to [PREFIX]tool0 instead of %s", flange_frame_.c_str());
-      return false;
-  }
+  // if (base_frame_.find("base_link") == std::string::npos)
+  // {
+  //     RCLCPP_ERROR(rclcpp::get_logger("ur_ik_solver"), "base_frame should be set equal to [PREFIX]base_link instead of %s", base_frame_.c_str());
+  //     return false;
+  // }
+  // if (flange_frame_.find("tool0") == std::string::npos)
+  // {
+  //     RCLCPP_ERROR(rclcpp::get_logger("ur_ik_solver"), "flange_frame should be set equal to [PREFIX]tool0 instead of %s", flange_frame_.c_str());
+  //     return false;
+  // }
 
   Eigen::AngleAxisd link6_ee(0.5*M_PI,Eigen::Vector3d::UnitZ());
   Eigen::AngleAxisd link6_tool0(-0.5*M_PI,Eigen::Vector3d::UnitX());
@@ -66,7 +66,7 @@ Solutions UrIkSolver::getIk(const Eigen::Affine3d& T_base_flange,
                                                    const int& /*max_stall_iterations*/)
 {
   double q_sols_array[n_sol*n_joints];
-  std::vector<Eigen::VectorXd> q_sols;
+  Configurations q_sols;
   // From Affine3d Column-major to row-major
 
   Eigen::Affine3d T_base_ee=T_base_flange*T_flange_ee_;
@@ -83,17 +83,18 @@ Solutions UrIkSolver::getIk(const Eigen::Affine3d& T_base_flange,
   for(std::vector<Eigen::VectorXd>::iterator it = q_sols.begin(); it != q_sols.end();)
   {
     std::vector<int> oob = outOfBound(*it, ub(), lb());
-    if(std::all_of(oob.begin(), oob.end(), [](int v){return bool(v);}))
+    if(!std::all_of(oob.begin(), oob.end(), [](int v){return bool(v);}))
       it = q_sols.erase(it);
     else
       ++it;
   }
   Solutions sols;
   sols.configurations() = q_sols;
+  sols.message() = "Found " + std::to_string(q_sols.size()) + " solutions";
   return sols;
 }
 
-Eigen::Affine3d getFK(const Configuration& s)
+Eigen::Affine3d UrIkSolver::getFK(const Configuration& s)
 {
   double T[16];
   Eigen::Transform<double, 3, Eigen::Affine, Eigen::RowMajor> FK;

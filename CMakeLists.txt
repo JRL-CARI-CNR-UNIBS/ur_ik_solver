@@ -27,7 +27,7 @@ ament_target_dependencies(ur5_ik_solver PUBLIC
   pluginlib)
 target_compile_definitions(ur5_ik_solver PUBLIC UR5_PARAMS)
 
-pluginlib_export_plugin_description_file(ik_solver plugin.xml)
+pluginlib_export_plugin_description_file(ik_solver plugin2.xml)
 
 install(TARGETS ur5_ik_solver
         EXPORT export_ur5_ik_solver
