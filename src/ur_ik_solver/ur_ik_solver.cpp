@@ -47,16 +47,18 @@ bool UrIkSolver::config(const std::string& params_ns)
     CNR_FATAL(this->logger_, "Ik solver initial config FAILED");
     return false;
   }
-  if(this->model_->joints_.size() != 6)
+  CNR_INFO(this->logger_, "Check joint number");
+  if(this->joint_names_.size() != 6)
   {
-    CNR_FATAL(this->logger_, "ur_ik_solver found %s joints instead of 6", this->model_->joints_.size());
+    CNR_FATAL(this->logger_, "UR Ik Solver found %s joints instead of 6", this->model_->joints_.size());
     return false;
   }
   Eigen::AngleAxisd link6_ee(0.5*M_PI,Eigen::Vector3d::UnitZ());
   Eigen::AngleAxisd link6_tool0(-0.5*M_PI,Eigen::Vector3d::UnitX());
 
   T_flange_ee_.setIdentity();
-  T_flange_ee_.linear()=link6_tool0.toRotationMatrix().inverse()*link6_ee.toRotationMatrix();
+  //T_flange_ee_.linear()=link6_tool0.toRotationMatrix().inverse()*link6_ee.toRotationMatrix();
+  CNR_INFO(this->logger_, "UR Ik Solver ready");
   return true;
 }
 
