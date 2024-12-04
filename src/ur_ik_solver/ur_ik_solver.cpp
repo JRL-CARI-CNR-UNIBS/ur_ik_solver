@@ -26,32 +26,34 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#include <ur_ik_solver/ur_ik_solver.hpp>
-#include <ur_ik_solver/ur_kinematics/ur_kin.h>
+#include "ur_ik_solver/ur_ik_solver.hpp"
+#include "ur_ik_solver/ur_kinematics/ur_kin.h"
+
+#if ROS_X == 1
+#include <pluginlib/class_list_macros.h>
+#else
 #include <pluginlib/class_list_macros.hpp>
+#endif
 
 PLUGINLIB_EXPORT_CLASS(ik_solver::UrIkSolver, ik_solver::IkSolver)
-
 
 namespace ik_solver
 {
 
-bool UrIkSolver::config(const std::string& /**/)
+bool UrIkSolver::config(const std::string& params_ns)
 {
-  // if (base_frame_.find("base_link") == std::string::npos)
-  // {
-  //     RCLCPP_ERROR(rclcpp::get_logger("ur_ik_solver"), "base_frame should be set equal to [PREFIX]base_link instead of %s", base_frame_.c_str());
-  //     return false;
-  // }
-  // if (flange_frame_.find("tool0") == std::string::npos)
-  // {
-  //     RCLCPP_ERROR(rclcpp::get_logger("ur_ik_solver"), "flange_frame should be set equal to [PREFIX]tool0 instead of %s", flange_frame_.c_str());
-  //     return false;
-  // }
-
+  if(!IkSolver::config(params_ns))
+  {
+    CNR_FATAL(this->logger_, "Ik solver initial config FAILED");
+    return false;
+  }
+  if(this->model_->joints_.size() != 6)
+  {
+    CNR_FATAL(this->logger_, "ur_ik_solver found %s joints instead of 6", this->model_->joints_.size());
+    return false;
+  }
   Eigen::AngleAxisd link6_ee(0.5*M_PI,Eigen::Vector3d::UnitZ());
   Eigen::AngleAxisd link6_tool0(-0.5*M_PI,Eigen::Vector3d::UnitX());
-
 
   T_flange_ee_.setIdentity();
   T_flange_ee_.linear()=link6_tool0.toRotationMatrix().inverse()*link6_ee.toRotationMatrix();

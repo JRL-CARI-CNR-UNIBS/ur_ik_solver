@@ -26,13 +26,12 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#pragma once
+#ifndef UR_IK_SOLVER__UR_IK_SOLVER
+#define UR_IK_SOLVER__UR_IK_SOLVER
 
-#include <rclcpp/rclcpp.hpp>
-#include <Eigen/Geometry>
 #include <ik_solver/ik_solver.hpp>
+#include <Eigen/Geometry>
 
-// #define TOLERANCE 1e-3
 namespace ik_solver
 {
 class UrIkSolver: public IkSolver
@@ -55,3 +54,5 @@ protected:
 
 };
 }  //  namespace ik_solver
+
+#endif // UR_IK_SOLVER__UR_IK_SOLVER

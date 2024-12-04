@@ -10,9 +10,16 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+
+set(ROS_VERSION $ENV{ROS_VERSION})
+if(ROS_VERSION STREQUAL "")
+  message(FATAL_ERROR "No supported version of ROS found!")
+endif()
+if(ROS_VERSION EQUAL 1)
+  message(FATAL_ERROR "ROS 1 support missing")
+endif()
+
 find_package(Eigen3 REQUIRED)
-find_package(ament_cmake REQUIRED)
-find_package(ik_solver   REQUIRED)
 
 # Define map {ur_model : ur_definition_macro}
 list(APPEND UR_MODELS
@@ -33,6 +40,11 @@ set(urmap_ur20 UR20_PARAMS)
 set(urmap_ur30 UR30_PARAMS)
 
 foreach(ur_type IN LISTS UR_MODELS)
+  message("ur_ik_solver: Building ROS 2 Version")
+  find_package(ament_cmake REQUIRED)
+  find_package(ik_solver   REQUIRED)
+  find_package(pluginlib   REQUIRED)
+
   add_library(${ur_type}_ik_solver SHARED
   src/ur_ik_solver/ur_ik_solver.cpp
   src/ur_ik_solver/ur_kinematics/ur_kin.cpp)

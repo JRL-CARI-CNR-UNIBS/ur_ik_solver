@@ -45,3 +45,27 @@
 		</description>
 	</class>
 </library>
+
+<library path="ur16e_ik_solver">
+  <class name="ik_solver/Ur16eIkSolver" type="ik_solver::UrIkSolver" base_class_type="ik_solver::IkSolver">
+    <description>
+      UR16e IK solver
+    </description>
+  </class>
+</library>
+
+<library path="ur20_ik_solver">
+  <class name="ik_solver/Ur20IkSolver" type="ik_solver::UrIkSolver" base_class_type="ik_solver::IkSolver">
+    <description>
+      UR20 IK solver
+    </description>
+  </class>
+</library>
+
+<library path="ur30_ik_solver">
+  <class name="ik_solver/Ur30IkSolver" type="ik_solver::UrIkSolver" base_class_type="ik_solver::IkSolver">
+    <description>
+      UR30 IK solver
+    </description>
+  </class>
+</library>
