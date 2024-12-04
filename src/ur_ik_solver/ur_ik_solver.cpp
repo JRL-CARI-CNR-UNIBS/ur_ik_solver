@@ -57,7 +57,7 @@ bool UrIkSolver::config(const std::string& params_ns)
   Eigen::AngleAxisd link6_tool0(-0.5*M_PI,Eigen::Vector3d::UnitX());
 
   T_flange_ee_.setIdentity();
-  //T_flange_ee_.linear()=link6_tool0.toRotationMatrix().inverse()*link6_ee.toRotationMatrix();
+  T_flange_ee_.linear()=link6_tool0.toRotationMatrix().inverse()*link6_ee.toRotationMatrix();
   CNR_INFO(this->logger_, "UR Ik Solver ready");
   return true;
 }
@@ -83,7 +83,8 @@ Solutions UrIkSolver::getIk(const Eigen::Affine3d& T_base_flange,
   {
     tmp_sols.push_back(Eigen::Map<Eigen::VectorXd>(q_sols_array+idx*n_joints,n_joints,1));
   }
-  q_sols = getMultiplicity(tmp_sols, ub(), lb(), {1,1,1,1,1,1});
+  //q_sols = getMultiplicity(tmp_sols, ub(), lb(), {1,1,1,1,1,1});
+  q_sols = tmp_sols;
   for(std::vector<Eigen::VectorXd>::iterator it = q_sols.begin(); it != q_sols.end();)
   {
     std::vector<int> oob = outOfBound(*it, ub(), lb());
