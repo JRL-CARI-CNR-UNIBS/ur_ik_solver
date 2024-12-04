@@ -6,35 +6,52 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-find_package(Eigen3 3.3 REQUIRED NO_MODULE)
-
+find_package(Eigen3 REQUIRED)
 find_package(ament_cmake REQUIRED)
 find_package(ik_solver   REQUIRED)
 
-add_library(ur5_ik_solver SHARED
+# Define map {ur_model : ur_definition_macro}
+list(APPEND UR_MODELS
+  ur3 ur3e
+  ur5 ur5e
+  ur10 ur10e
+  ur16e
+  ur20
+  ur30)
+set(urmap_ur3 UR3_PARAMS)
+set(urmap_ur3e UR3e_PARAMS)
+set(urmap_ur5 UR5_PARAMS)
+set(urmap_ur5e UR5e_PARAMS)
+set(urmap_ur10 UR10_PARAMS)
+set(urmap_ur10e UR10e_PARAMS)
+set(urmap_ur16e UR16e_PARAMS)
+set(urmap_ur20 UR20_PARAMS)
+set(urmap_ur30 UR30_PARAMS)
+
+foreach(ur_type IN LISTS UR_MODELS)
+  add_library(${ur_type}_ik_solver SHARED
   src/ur_ik_solver/ur_ik_solver.cpp
   src/ur_ik_solver/ur_kinematics/ur_kin.cpp)
-target_include_directories(ur5_ik_solver PUBLIC
-  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
-  "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
-ament_target_dependencies(ur5_ik_solver PUBLIC
-  rclcpp
-  ik_solver
-  pluginlib)
-target_compile_definitions(ur5_ik_solver PUBLIC UR5_PARAMS)
+  target_include_directories(${ur_type}_ik_solver PUBLIC
+    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+    "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
+  ament_target_dependencies(${ur_type}_ik_solver PUBLIC rclcpp
+                                                 ik_solver
+                                                 pluginlib)
+  target_compile_definitions(${ur_type}_ik_solver PUBLIC ${urmap_${ur_type}})
+  install(TARGETS ${ur_type}_ik_solver
+          EXPORT export_ur_ik_solver
+          LIBRARY DESTINATION lib
+          ARCHIVE DESTINATION lib
+          RUNTIME DESTINATION bin)
+endforeach()
 
 pluginlib_export_plugin_description_file(ik_solver plugin2.xml)
 
-install(TARGETS ur5_ik_solver
-        EXPORT export_ur5_ik_solver
-        LIBRARY DESTINATION lib
-        ARCHIVE DESTINATION lib
-        RUNTIME DESTINATION bin)
-
-ament_export_targets(export_ur5_ik_solver)
+ament_export_targets(export_ur_ik_solver)
 ament_export_dependencies(ik_solver pluginlib)
 ament_package()
