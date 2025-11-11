@@ -102,9 +102,12 @@ Solutions UrIkSolver::getIk(const Eigen::Affine3d& T_base_flange,
 Eigen::Affine3d UrIkSolver::getFK(const Configuration& s)
 {
   double T[16];
-  Eigen::Transform<double, 3, Eigen::Affine, Eigen::RowMajor> FK;
-  ur_kinematics::forward(s.data(), T);
-  FK.matrix() = Eigen::Map<Eigen::Matrix4d, Eigen::RowMajor>(T);
+  ur_kinematics::forward(s.data(), T); // fills a row-major 4x4
+
+  // Map as a row-major matrix type (note: RowMajor is part of the Matrix type, not Map Options)
+  Eigen::Map<const Eigen::Matrix<double,4,4,Eigen::RowMajor>> H_rm(T);
+
+  Eigen::Affine3d FK(H_rm);           // Eigen handles storage; semantics: t in last column
   return FK;
 }
 
