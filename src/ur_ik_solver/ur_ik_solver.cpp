@@ -83,16 +83,18 @@ Solutions UrIkSolver::getIk(const Eigen::Affine3d& T_base_flange,
   {
     tmp_sols.push_back(Eigen::Map<Eigen::VectorXd>(q_sols_array+idx*n_joints,n_joints,1));
   }
-  //q_sols = getMultiplicity(tmp_sols, ub(), lb(), {1,1,1,1,1,1});
-  q_sols = tmp_sols;
-  for(std::vector<Eigen::VectorXd>::iterator it = q_sols.begin(); it != q_sols.end();)
+  q_sols = getMultiplicity(tmp_sols, ub(), lb(), {1,1,1,1,1,1});
+
+  for (auto it = q_sols.begin(); it != q_sols.end(); )
   {
-    std::vector<int> oob = outOfBound(*it, ub(), lb());
-    if(!std::all_of(oob.begin(), oob.end(), [](int v){return bool(v);}))
-      it = q_sols.erase(it);
-    else
-      ++it;
+      std::vector<int> oob = outOfBound(*it, ub(), lb());
+      // erase any solution that has at least one out-of-bound joint
+      if (!oob.empty())
+          it = q_sols.erase(it);
+      else
+          ++it;
   }
+
   Solutions sols;
   sols.configurations() = q_sols;
   sols.message() = "Found " + std::to_string(q_sols.size()) + " solutions";

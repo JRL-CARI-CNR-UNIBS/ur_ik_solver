@@ -67,3 +67,7 @@ pluginlib_export_plugin_description_file(ik_solver plugin2.xml)
 ament_export_targets(export_ur_ik_solver)
 ament_export_dependencies(ik_solver pluginlib)
 ament_package()
+
+install(DIRECTORY config launch
+  DESTINATION share/${PROJECT_NAME}
+)
