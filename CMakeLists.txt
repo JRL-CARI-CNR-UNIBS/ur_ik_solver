@@ -54,7 +54,9 @@ foreach(ur_type IN LISTS UR_MODELS)
   ament_target_dependencies(${ur_type}_ik_solver PUBLIC rclcpp
                                                  ik_solver
                                                  pluginlib)
+
   target_compile_definitions(${ur_type}_ik_solver PUBLIC ${urmap_${ur_type}})
+
   install(TARGETS ${ur_type}_ik_solver
           EXPORT export_ur_ik_solver
           LIBRARY DESTINATION lib

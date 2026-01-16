@@ -112,7 +112,7 @@ Eigen::Affine3d UrIkSolver::getFK(const Configuration& s)
 
   Eigen::Affine3d T_base_ee(H_rm);           // Eigen handles storage; semantics: t in last column
 
-  Eigen::Affine3d T_base_flange=T_base_flange*T_ee_flange_T_flange_ee_;
+  Eigen::Affine3d T_base_flange=T_base_ee*T_ee_flange_;
 
   return T_base_flange;
 }

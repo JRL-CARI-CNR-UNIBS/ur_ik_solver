@@ -44,8 +44,8 @@ public:
                                      const int& max_stall_iterations = -1) override;
 
   virtual Eigen::Affine3d getFK(const Configuration& s) override;
-protected:
   virtual bool config(const std::string& param_ns = "") override;
+protected:
 
 
   Eigen::Affine3d T_flange_ee_;
