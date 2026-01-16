@@ -1,0 +1,151 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-f003efc001a96c5f9aeb.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "ur_ik_solver",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-Debug-d3f1a647c7c9b1e1ae13.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ur10_ik_solver::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ur10_ik_solver-Debug-73353243868a955aefeb.json",
+					"name" : "ur10_ik_solver",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ur10e_ik_solver::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ur10e_ik_solver-Debug-5cac27d78a2d6edcde1f.json",
+					"name" : "ur10e_ik_solver",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ur16e_ik_solver::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ur16e_ik_solver-Debug-118dfd65701373c7daf8.json",
+					"name" : "ur16e_ik_solver",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ur20_ik_solver::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ur20_ik_solver-Debug-02cffad640037c002bdb.json",
+					"name" : "ur20_ik_solver",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ur30_ik_solver::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ur30_ik_solver-Debug-29ad27b2374fa0fd3b29.json",
+					"name" : "ur30_ik_solver",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ur3_ik_solver::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ur3_ik_solver-Debug-6abc25dfd5deb83316cd.json",
+					"name" : "ur3_ik_solver",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ur3e_ik_solver::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ur3e_ik_solver-Debug-76a47bc0a72e63452073.json",
+					"name" : "ur3e_ik_solver",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ur5_ik_solver::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ur5_ik_solver-Debug-5ac5a4e185b5c6749127.json",
+					"name" : "ur5_ik_solver",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ur5e_ik_solver::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ur5e_ik_solver-Debug-3767be839c371e2ef24b.json",
+					"name" : "ur5e_ik_solver",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ur_ik_solver_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ur_ik_solver_uninstall-Debug-eaf4a5b30b430711a77b.json",
+					"name" : "ur_ik_solver_uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/Desktop-Debug",
+		"source" : "/home/kalman/projects/ros2_ws/src/ur_ik_solver"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>ur_ik_solver</name>
+  <version>0.0.0</version>
+  <description>The ur_ik_solver package</description>
+  <maintainer email="roberto.fausti@stiima.cnr.it">Roberto Fausti</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+  <buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+  <depend>ik_solver</depend>
+  <depend>eigen</depend>
+  <depend>pluginlib</depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <build_type condition="$ROS_VERSION == 1">catkin</build_type>
+    <build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+    <ik_solver plugin="${prefix}/plugin1.xml"/>
+  </export>
+</package>

@@ -1,0 +1,30 @@
+[0mur_ik_solver: Building ROS 2 Version[0m
+[0mur_ik_solver: Building ROS 2 Version[0m
+[0mur_ik_solver: Building ROS 2 Version[0m
+[0mur_ik_solver: Building ROS 2 Version[0m
+[0mur_ik_solver: Building ROS 2 Version[0m
+[0mur_ik_solver: Building ROS 2 Version[0m
+[0mur_ik_solver: Building ROS 2 Version[0m
+[0mur_ik_solver: Building ROS 2 Version[0m
+[0mur_ik_solver: Building ROS 2 Version[0m
+[01m[K/home/kalman/projects/ros2_ws/src/ur_ik_solver/src/ur_ik_solver/ur_ik_solver.cpp:[m[K In member function ‘[01m[Kvirtual Eigen::Affine3d ik_solver::UrIkSolver::[01;32m[KgetFK[m[K(const ik_solver::Configuration&)[m[K’:
+[01m[K/home/kalman/projects/ros2_ws/src/ur_ik_solver/src/ur_ik_solver/ur_ik_solver.cpp:115:47:[m[K [01;31m[Kerror: [m[K‘[01m[KT_ee_flange_T_flange_ee_[m[K’ was not declared in this scope
+  115 |   Eigen::Affine3d T_base_flange=T_base_flange*[01;31m[KT_ee_flange_T_flange_ee_[m[K;
+      |                                               [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/kalman/projects/ros2_ws/src/ur_ik_solver/src/ur_ik_solver/ur_ik_solver.cpp:[m[K In member function ‘[01m[Kvirtual Eigen::Affine3d ik_solver::UrIkSolver::[01;32m[KgetFK[m[K(const ik_solver::Configuration&)[m[K’:
+[01m[K/home/kalman/projects/ros2_ws/src/ur_ik_solver/src/ur_ik_solver/ur_ik_solver.cpp:115:47:[m[K [01;31m[Kerror: [m[K‘[01m[KT_ee_flange_T_flange_ee_[m[K’ was not declared in this scope
+  115 |   Eigen::Affine3d T_base_flange=T_base_flange*[01;31m[KT_ee_flange_T_flange_ee_[m[K;
+      |                                               [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/kalman/projects/ros2_ws/src/ur_ik_solver/src/ur_ik_solver/ur_ik_solver.cpp:[m[K In member function ‘[01m[Kvirtual Eigen::Affine3d ik_solver::UrIkSolver::[01;32m[KgetFK[m[K(const ik_solver::Configuration&)[m[K’:
+[01m[K/home/kalman/projects/ros2_ws/src/ur_ik_solver/src/ur_ik_solver/ur_ik_solver.cpp:115:47:[m[K [01;31m[Kerror: [m[K‘[01m[KT_ee_flange_T_flange_ee_[m[K’ was not declared in this scope
+  115 |   Eigen::Affine3d T_base_flange=T_base_flange*[01;31m[KT_ee_flange_T_flange_ee_[m[K;
+      |                                               [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/ur3_ik_solver.dir/build.make:76: CMakeFiles/ur3_ik_solver.dir/src/ur_ik_solver/ur_ik_solver.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:153: CMakeFiles/ur3_ik_solver.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+gmake[2]: *** [CMakeFiles/ur3e_ik_solver.dir/build.make:76: CMakeFiles/ur3e_ik_solver.dir/src/ur_ik_solver/ur_ik_solver.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:179: CMakeFiles/ur3e_ik_solver.dir/all] Error 2
+gmake[2]: *** [CMakeFiles/ur5_ik_solver.dir/build.make:76: CMakeFiles/ur5_ik_solver.dir/src/ur_ik_solver/ur_ik_solver.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[1]: *** [CMakeFiles/Makefile2:205: CMakeFiles/ur5_ik_solver.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

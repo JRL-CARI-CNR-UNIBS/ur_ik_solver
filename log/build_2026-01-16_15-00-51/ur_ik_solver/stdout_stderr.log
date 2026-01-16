@@ -1,0 +1,71 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+[0mur_ik_solver: Building ROS 2 Version[0m
+-- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Found ik_solver: 0.0.0 (/home/kalman/projects/ros2_ws/install/ik_solver/share/ik_solver/cmake)
+-- Found rosidl_generator_c: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Find Boost (REQUIRED) ...
+-- Checking for module 'yaml-cpp'
+--   Found yaml-cpp, version 0.8.0
+-- Checking for module 'liblog4cxx'
+--   Found liblog4cxx, version 1.1.0
+-- Checking for module 'yaml-cpp'
+--   Found yaml-cpp, version 0.8.0
+-- Found PkgConfig: /usr/bin/pkg-config (found version "1.8.1") 
+-- Checking for module 'urdfdom'
+--   Found urdfdom, version 4.0.1
+[0mur_ik_solver: Building ROS 2 Version[0m
+[0mur_ik_solver: Building ROS 2 Version[0m
+[0mur_ik_solver: Building ROS 2 Version[0m
+[0mur_ik_solver: Building ROS 2 Version[0m
+[0mur_ik_solver: Building ROS 2 Version[0m
+[0mur_ik_solver: Building ROS 2 Version[0m
+[0mur_ik_solver: Building ROS 2 Version[0m
+[0mur_ik_solver: Building ROS 2 Version[0m
+-- Configuring done (2.2s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver
+[  3%] [32mBuilding CXX object CMakeFiles/ur3e_ik_solver.dir/src/ur_ik_solver/ur_ik_solver.cpp.o[0m
+[ 11%] [32mBuilding CXX object CMakeFiles/ur5_ik_solver.dir/src/ur_ik_solver/ur_ik_solver.cpp.o[0m
+[ 11%] [32mBuilding CXX object CMakeFiles/ur3_ik_solver.dir/src/ur_ik_solver/ur_ik_solver.cpp.o[0m
+[01m[K/home/kalman/projects/ros2_ws/src/ur_ik_solver/src/ur_ik_solver/ur_ik_solver.cpp:[m[K In member function ‘[01m[Kvirtual Eigen::Affine3d ik_solver::UrIkSolver::[01;32m[KgetFK[m[K(const ik_solver::Configuration&)[m[K’:
+[01m[K/home/kalman/projects/ros2_ws/src/ur_ik_solver/src/ur_ik_solver/ur_ik_solver.cpp:115:47:[m[K [01;31m[Kerror: [m[K‘[01m[KT_ee_flange_T_flange_ee_[m[K’ was not declared in this scope
+  115 |   Eigen::Affine3d T_base_flange=T_base_flange*[01;31m[KT_ee_flange_T_flange_ee_[m[K;
+      |                                               [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/kalman/projects/ros2_ws/src/ur_ik_solver/src/ur_ik_solver/ur_ik_solver.cpp:[m[K In member function ‘[01m[Kvirtual Eigen::Affine3d ik_solver::UrIkSolver::[01;32m[KgetFK[m[K(const ik_solver::Configuration&)[m[K’:
+[01m[K/home/kalman/projects/ros2_ws/src/ur_ik_solver/src/ur_ik_solver/ur_ik_solver.cpp:115:47:[m[K [01;31m[Kerror: [m[K‘[01m[KT_ee_flange_T_flange_ee_[m[K’ was not declared in this scope
+  115 |   Eigen::Affine3d T_base_flange=T_base_flange*[01;31m[KT_ee_flange_T_flange_ee_[m[K;
+      |                                               [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/kalman/projects/ros2_ws/src/ur_ik_solver/src/ur_ik_solver/ur_ik_solver.cpp:[m[K In member function ‘[01m[Kvirtual Eigen::Affine3d ik_solver::UrIkSolver::[01;32m[KgetFK[m[K(const ik_solver::Configuration&)[m[K’:
+[01m[K/home/kalman/projects/ros2_ws/src/ur_ik_solver/src/ur_ik_solver/ur_ik_solver.cpp:115:47:[m[K [01;31m[Kerror: [m[K‘[01m[KT_ee_flange_T_flange_ee_[m[K’ was not declared in this scope
+  115 |   Eigen::Affine3d T_base_flange=T_base_flange*[01;31m[KT_ee_flange_T_flange_ee_[m[K;
+      |                                               [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/ur3_ik_solver.dir/build.make:76: CMakeFiles/ur3_ik_solver.dir/src/ur_ik_solver/ur_ik_solver.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:153: CMakeFiles/ur3_ik_solver.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+gmake[2]: *** [CMakeFiles/ur3e_ik_solver.dir/build.make:76: CMakeFiles/ur3e_ik_solver.dir/src/ur_ik_solver/ur_ik_solver.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:179: CMakeFiles/ur3e_ik_solver.dir/all] Error 2
+[ 14%] [32mBuilding CXX object CMakeFiles/ur5_ik_solver.dir/src/ur_ik_solver/ur_kinematics/ur_kin.cpp.o[0m
+gmake[2]: *** [CMakeFiles/ur5_ik_solver.dir/build.make:76: CMakeFiles/ur5_ik_solver.dir/src/ur_ik_solver/ur_ik_solver.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[1]: *** [CMakeFiles/Makefile2:205: CMakeFiles/ur5_ik_solver.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

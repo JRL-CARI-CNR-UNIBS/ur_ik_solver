@@ -58,6 +58,7 @@ bool UrIkSolver::config(const std::string& params_ns)
 
   T_flange_ee_.setIdentity();
   T_flange_ee_.linear()=link6_tool0.toRotationMatrix().inverse()*link6_ee.toRotationMatrix();
+  T_ee_flange_ = T_flange_ee_.inverse();
   CNR_INFO(this->logger_, "UR Ik Solver ready");
   return true;
 }
@@ -109,8 +110,11 @@ Eigen::Affine3d UrIkSolver::getFK(const Configuration& s)
   // Map as a row-major matrix type (note: RowMajor is part of the Matrix type, not Map Options)
   Eigen::Map<const Eigen::Matrix<double,4,4,Eigen::RowMajor>> H_rm(T);
 
-  Eigen::Affine3d FK(H_rm);           // Eigen handles storage; semantics: t in last column
-  return FK;
+  Eigen::Affine3d T_base_ee(H_rm);           // Eigen handles storage; semantics: t in last column
+
+  Eigen::Affine3d T_base_flange=T_base_flange*T_ee_flange_T_flange_ee_;
+
+  return T_base_flange;
 }
 
 }   // end namespace ik_solver

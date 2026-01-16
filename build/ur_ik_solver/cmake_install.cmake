@@ -1,0 +1,366 @@
+# Install script for directory: /home/kalman/projects/ros2_ws/src/ur_ik_solver
+
+# Set the install prefix
+if(NOT DEFINED CMAKE_INSTALL_PREFIX)
+  set(CMAKE_INSTALL_PREFIX "/home/kalman/projects/ros2_ws/src/ur_ik_solver/install/ur_ik_solver")
+endif()
+string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
+
+# Set the install configuration name.
+if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
+  if(BUILD_TYPE)
+    string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
+           CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
+  else()
+    set(CMAKE_INSTALL_CONFIG_NAME "Debug")
+  endif()
+  message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
+endif()
+
+# Set the component getting installed.
+if(NOT CMAKE_INSTALL_COMPONENT)
+  if(COMPONENT)
+    message(STATUS "Install component: \"${COMPONENT}\"")
+    set(CMAKE_INSTALL_COMPONENT "${COMPONENT}")
+  else()
+    set(CMAKE_INSTALL_COMPONENT)
+  endif()
+endif()
+
+# Install shared libraries without execute permission?
+if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
+  set(CMAKE_INSTALL_SO_NO_EXE "1")
+endif()
+
+# Is this installation the result of a crosscompile?
+if(NOT DEFINED CMAKE_CROSSCOMPILING)
+  set(CMAKE_CROSSCOMPILING "FALSE")
+endif()
+
+# Set default install directory permissions.
+if(NOT DEFINED CMAKE_OBJDUMP)
+  set(CMAKE_OBJDUMP "/usr/bin/objdump")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur3_ik_solver.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur3_ik_solver.so")
+    file(RPATH_CHECK
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur3_ik_solver.so"
+         RPATH "")
+  endif()
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/libur3_ik_solver.so")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur3_ik_solver.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur3_ik_solver.so")
+    file(RPATH_CHANGE
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur3_ik_solver.so"
+         OLD_RPATH "/home/kalman/projects/ros2_ws/install/ik_solver/lib:/opt/ros/jazzy/lib:/home/kalman/projects/ros2_ws/install/ik_solver_msgs/lib:/home/kalman/projects/ros2_ws/install/ik_solver_core/lib:/home/kalman/projects/ros2_ws/install/cnr_logger/lib:/home/kalman/projects/ros2_ws/install/cnr_param/lib:/home/kalman/projects/ros2_ws/install/cnr_yaml/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:"
+         NEW_RPATH "")
+    if(CMAKE_INSTALL_DO_STRIP)
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur3_ik_solver.so")
+    endif()
+  endif()
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur3e_ik_solver.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur3e_ik_solver.so")
+    file(RPATH_CHECK
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur3e_ik_solver.so"
+         RPATH "")
+  endif()
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/libur3e_ik_solver.so")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur3e_ik_solver.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur3e_ik_solver.so")
+    file(RPATH_CHANGE
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur3e_ik_solver.so"
+         OLD_RPATH "/home/kalman/projects/ros2_ws/install/ik_solver/lib:/opt/ros/jazzy/lib:/home/kalman/projects/ros2_ws/install/ik_solver_msgs/lib:/home/kalman/projects/ros2_ws/install/ik_solver_core/lib:/home/kalman/projects/ros2_ws/install/cnr_logger/lib:/home/kalman/projects/ros2_ws/install/cnr_param/lib:/home/kalman/projects/ros2_ws/install/cnr_yaml/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:"
+         NEW_RPATH "")
+    if(CMAKE_INSTALL_DO_STRIP)
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur3e_ik_solver.so")
+    endif()
+  endif()
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur5_ik_solver.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur5_ik_solver.so")
+    file(RPATH_CHECK
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur5_ik_solver.so"
+         RPATH "")
+  endif()
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/libur5_ik_solver.so")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur5_ik_solver.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur5_ik_solver.so")
+    file(RPATH_CHANGE
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur5_ik_solver.so"
+         OLD_RPATH "/home/kalman/projects/ros2_ws/install/ik_solver/lib:/opt/ros/jazzy/lib:/home/kalman/projects/ros2_ws/install/ik_solver_msgs/lib:/home/kalman/projects/ros2_ws/install/ik_solver_core/lib:/home/kalman/projects/ros2_ws/install/cnr_logger/lib:/home/kalman/projects/ros2_ws/install/cnr_param/lib:/home/kalman/projects/ros2_ws/install/cnr_yaml/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:"
+         NEW_RPATH "")
+    if(CMAKE_INSTALL_DO_STRIP)
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur5_ik_solver.so")
+    endif()
+  endif()
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur5e_ik_solver.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur5e_ik_solver.so")
+    file(RPATH_CHECK
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur5e_ik_solver.so"
+         RPATH "")
+  endif()
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/libur5e_ik_solver.so")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur5e_ik_solver.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur5e_ik_solver.so")
+    file(RPATH_CHANGE
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur5e_ik_solver.so"
+         OLD_RPATH "/home/kalman/projects/ros2_ws/install/ik_solver/lib:/opt/ros/jazzy/lib:/home/kalman/projects/ros2_ws/install/ik_solver_msgs/lib:/home/kalman/projects/ros2_ws/install/ik_solver_core/lib:/home/kalman/projects/ros2_ws/install/cnr_logger/lib:/home/kalman/projects/ros2_ws/install/cnr_param/lib:/home/kalman/projects/ros2_ws/install/cnr_yaml/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:"
+         NEW_RPATH "")
+    if(CMAKE_INSTALL_DO_STRIP)
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur5e_ik_solver.so")
+    endif()
+  endif()
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur10_ik_solver.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur10_ik_solver.so")
+    file(RPATH_CHECK
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur10_ik_solver.so"
+         RPATH "")
+  endif()
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/libur10_ik_solver.so")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur10_ik_solver.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur10_ik_solver.so")
+    file(RPATH_CHANGE
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur10_ik_solver.so"
+         OLD_RPATH "/home/kalman/projects/ros2_ws/install/ik_solver/lib:/opt/ros/jazzy/lib:/home/kalman/projects/ros2_ws/install/ik_solver_msgs/lib:/home/kalman/projects/ros2_ws/install/ik_solver_core/lib:/home/kalman/projects/ros2_ws/install/cnr_logger/lib:/home/kalman/projects/ros2_ws/install/cnr_param/lib:/home/kalman/projects/ros2_ws/install/cnr_yaml/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:"
+         NEW_RPATH "")
+    if(CMAKE_INSTALL_DO_STRIP)
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur10_ik_solver.so")
+    endif()
+  endif()
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur10e_ik_solver.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur10e_ik_solver.so")
+    file(RPATH_CHECK
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur10e_ik_solver.so"
+         RPATH "")
+  endif()
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/libur10e_ik_solver.so")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur10e_ik_solver.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur10e_ik_solver.so")
+    file(RPATH_CHANGE
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur10e_ik_solver.so"
+         OLD_RPATH "/home/kalman/projects/ros2_ws/install/ik_solver/lib:/opt/ros/jazzy/lib:/home/kalman/projects/ros2_ws/install/ik_solver_msgs/lib:/home/kalman/projects/ros2_ws/install/ik_solver_core/lib:/home/kalman/projects/ros2_ws/install/cnr_logger/lib:/home/kalman/projects/ros2_ws/install/cnr_param/lib:/home/kalman/projects/ros2_ws/install/cnr_yaml/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:"
+         NEW_RPATH "")
+    if(CMAKE_INSTALL_DO_STRIP)
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur10e_ik_solver.so")
+    endif()
+  endif()
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur16e_ik_solver.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur16e_ik_solver.so")
+    file(RPATH_CHECK
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur16e_ik_solver.so"
+         RPATH "")
+  endif()
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/libur16e_ik_solver.so")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur16e_ik_solver.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur16e_ik_solver.so")
+    file(RPATH_CHANGE
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur16e_ik_solver.so"
+         OLD_RPATH "/home/kalman/projects/ros2_ws/install/ik_solver/lib:/opt/ros/jazzy/lib:/home/kalman/projects/ros2_ws/install/ik_solver_msgs/lib:/home/kalman/projects/ros2_ws/install/ik_solver_core/lib:/home/kalman/projects/ros2_ws/install/cnr_logger/lib:/home/kalman/projects/ros2_ws/install/cnr_param/lib:/home/kalman/projects/ros2_ws/install/cnr_yaml/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:"
+         NEW_RPATH "")
+    if(CMAKE_INSTALL_DO_STRIP)
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur16e_ik_solver.so")
+    endif()
+  endif()
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur20_ik_solver.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur20_ik_solver.so")
+    file(RPATH_CHECK
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur20_ik_solver.so"
+         RPATH "")
+  endif()
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/libur20_ik_solver.so")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur20_ik_solver.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur20_ik_solver.so")
+    file(RPATH_CHANGE
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur20_ik_solver.so"
+         OLD_RPATH "/home/kalman/projects/ros2_ws/install/ik_solver/lib:/opt/ros/jazzy/lib:/home/kalman/projects/ros2_ws/install/ik_solver_msgs/lib:/home/kalman/projects/ros2_ws/install/ik_solver_core/lib:/home/kalman/projects/ros2_ws/install/cnr_logger/lib:/home/kalman/projects/ros2_ws/install/cnr_param/lib:/home/kalman/projects/ros2_ws/install/cnr_yaml/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:"
+         NEW_RPATH "")
+    if(CMAKE_INSTALL_DO_STRIP)
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur20_ik_solver.so")
+    endif()
+  endif()
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur30_ik_solver.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur30_ik_solver.so")
+    file(RPATH_CHECK
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur30_ik_solver.so"
+         RPATH "")
+  endif()
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/libur30_ik_solver.so")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur30_ik_solver.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur30_ik_solver.so")
+    file(RPATH_CHANGE
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur30_ik_solver.so"
+         OLD_RPATH "/home/kalman/projects/ros2_ws/install/ik_solver/lib:/opt/ros/jazzy/lib:/home/kalman/projects/ros2_ws/install/ik_solver_msgs/lib:/home/kalman/projects/ros2_ws/install/ik_solver_core/lib:/home/kalman/projects/ros2_ws/install/cnr_logger/lib:/home/kalman/projects/ros2_ws/install/cnr_param/lib:/home/kalman/projects/ros2_ws/install/cnr_yaml/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:"
+         NEW_RPATH "")
+    if(CMAKE_INSTALL_DO_STRIP)
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libur30_ik_solver.so")
+    endif()
+  endif()
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_ik_solver" TYPE FILE FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/plugin2.xml")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ur_ik_solver")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/ur_ik_solver")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_ik_solver/environment" TYPE FILE FILES "/opt/ros/jazzy/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_ik_solver/environment" TYPE FILE FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/ament_cmake_environment_hooks/ament_prefix_path.dsv")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_ik_solver/environment" TYPE FILE FILES "/opt/ros/jazzy/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_ik_solver/environment" TYPE FILE FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/ament_cmake_environment_hooks/path.dsv")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_ik_solver" TYPE FILE FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/ament_cmake_environment_hooks/local_setup.bash")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_ik_solver" TYPE FILE FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/ament_cmake_environment_hooks/local_setup.sh")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_ik_solver" TYPE FILE FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/ament_cmake_environment_hooks/local_setup.zsh")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_ik_solver" TYPE FILE FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/ament_cmake_environment_hooks/local_setup.dsv")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_ik_solver" TYPE FILE FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/ament_cmake_environment_hooks/package.dsv")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/ament_cmake_index/share/ament_index/resource_index/packages/ur_ik_solver")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/ik_solver__pluginlib__plugin" TYPE FILE FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/ament_cmake_index/share/ament_index/resource_index/ik_solver__pluginlib__plugin/ur_ik_solver")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/ur_ik_solver/cmake/export_ur_ik_solverExport.cmake")
+    file(DIFFERENT _cmake_export_file_changed FILES
+         "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/ur_ik_solver/cmake/export_ur_ik_solverExport.cmake"
+         "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/CMakeFiles/Export/93f5686498a68e063285a0ce2d8d9c43/export_ur_ik_solverExport.cmake")
+    if(_cmake_export_file_changed)
+      file(GLOB _cmake_old_config_files "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/ur_ik_solver/cmake/export_ur_ik_solverExport-*.cmake")
+      if(_cmake_old_config_files)
+        string(REPLACE ";" ", " _cmake_old_config_files_text "${_cmake_old_config_files}")
+        message(STATUS "Old export file \"$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/ur_ik_solver/cmake/export_ur_ik_solverExport.cmake\" will be replaced.  Removing files [${_cmake_old_config_files_text}].")
+        unset(_cmake_old_config_files_text)
+        file(REMOVE ${_cmake_old_config_files})
+      endif()
+      unset(_cmake_old_config_files)
+    endif()
+    unset(_cmake_export_file_changed)
+  endif()
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_ik_solver/cmake" TYPE FILE FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/CMakeFiles/Export/93f5686498a68e063285a0ce2d8d9c43/export_ur_ik_solverExport.cmake")
+  if(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_ik_solver/cmake" TYPE FILE FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/CMakeFiles/Export/93f5686498a68e063285a0ce2d8d9c43/export_ur_ik_solverExport-debug.cmake")
+  endif()
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_ik_solver/cmake" TYPE FILE FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/ament_cmake_export_targets/ament_cmake_export_targets-extras.cmake")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_ik_solver/cmake" TYPE FILE FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/ament_cmake_export_dependencies/ament_cmake_export_dependencies-extras.cmake")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_ik_solver/cmake" TYPE FILE FILES
+    "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/ament_cmake_core/ur_ik_solverConfig.cmake"
+    "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/ament_cmake_core/ur_ik_solverConfig-version.cmake"
+    )
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_ik_solver" TYPE FILE FILES "/home/kalman/projects/ros2_ws/src/ur_ik_solver/package.xml")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_ik_solver" TYPE DIRECTORY FILES
+    "/home/kalman/projects/ros2_ws/src/ur_ik_solver/config"
+    "/home/kalman/projects/ros2_ws/src/ur_ik_solver/launch"
+    )
+endif()
+
+if(CMAKE_INSTALL_COMPONENT)
+  set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
+else()
+  set(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
+endif()
+
+string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
+       "${CMAKE_INSTALL_MANIFEST_FILES}")
+file(WRITE "/home/kalman/projects/ros2_ws/src/ur_ik_solver/build/ur_ik_solver/${CMAKE_INSTALL_MANIFEST}"
+     "${CMAKE_INSTALL_MANIFEST_CONTENT}")
