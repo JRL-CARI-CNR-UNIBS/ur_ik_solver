@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="3">
   <name>ur_ik_solver</name>
-  <version>0.0.0</version>
+  <version>0.1.0</version>
   <description>The ur_ik_solver package</description>
   <maintainer email="roberto.fausti@stiima.cnr.it">Roberto Fausti</maintainer>
   <license>TODO</license>
