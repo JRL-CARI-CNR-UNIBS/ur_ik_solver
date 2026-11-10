@@ -40,17 +40,17 @@ PLUGINLIB_EXPORT_CLASS(ik_solver::UrIkSolver, ik_solver::IkSolver)
 namespace ik_solver
 {
 
-bool UrIkSolver::config(const std::string& params_ns)
+bool UrIkSolver::config(const ParamMap& params)
 {
-  if(!IkSolver::config(params_ns))
+  if(!IkSolver::config(params))
   {
-    CNR_FATAL(this->logger_, "Ik solver initial config FAILED");
+    IK_FATAL(this->logger_, "Ik solver initial config FAILED");
     return false;
   }
-  CNR_INFO(this->logger_, "Check joint number");
+  IK_INFO(this->logger_, "Check joint number");
   if(this->joint_names_.size() != 6)
   {
-    CNR_FATAL(this->logger_, "UR Ik Solver found %s joints instead of 6", this->model_->joints_.size());
+    IK_FATAL(this->logger_, "UR Ik Solver found " << this->joint_names_.size() << " joints instead of 6");
     return false;
   }
   Eigen::AngleAxisd link6_ee(0.5*M_PI,Eigen::Vector3d::UnitZ());
@@ -59,7 +59,7 @@ bool UrIkSolver::config(const std::string& params_ns)
   T_flange_ee_.setIdentity();
   T_flange_ee_.linear()=link6_tool0.toRotationMatrix().inverse()*link6_ee.toRotationMatrix();
   T_ee_flange_ = T_flange_ee_.inverse();
-  CNR_INFO(this->logger_, "UR Ik Solver ready");
+  IK_INFO(this->logger_, "UR Ik Solver ready");
   return true;
 }
 

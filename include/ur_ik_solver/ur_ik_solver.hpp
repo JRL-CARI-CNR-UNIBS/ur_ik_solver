@@ -44,7 +44,7 @@ public:
                                      const int& max_stall_iterations = -1) override;
 
   virtual Eigen::Affine3d getFK(const Configuration& s) override;
-  virtual bool config(const std::string& param_ns = "") override;
+  virtual bool config(const ParamMap& params) override;
 protected:
 
 
