@@ -50,9 +50,7 @@ foreach(ur_type IN LISTS UR_MODELS)
   target_include_directories(${ur_type}_ik_solver PUBLIC
     "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
     "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
-  ament_target_dependencies(${ur_type}_ik_solver PUBLIC rclcpp
-                                                 ik_solver
-                                                 pluginlib)
+  target_link_libraries(${ur_type}_ik_solver PUBLIC ${rclcpp_TARGETS} ${ik_solver_TARGETS} ${pluginlib_TARGETS})
 
   target_compile_definitions(${ur_type}_ik_solver PUBLIC ${urmap_${ur_type}})
 
