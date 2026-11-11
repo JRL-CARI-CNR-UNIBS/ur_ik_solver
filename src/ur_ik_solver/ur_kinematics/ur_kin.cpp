@@ -1,6 +1,7 @@
 #include <ur_ik_solver/ur_kinematics/ur_kin.h>
 
 #include <math.h>
+#include <algorithm>
 #include <stdio.h>
 
 
@@ -254,8 +255,11 @@ namespace ur_kinematics {
     }
   }
 
-  int inverse(const double* T, double* q_sols, double q6_des) {
+  int inverse(const double* T, double* q_sols, double q6_des, double domain_tolerance,
+              double wrist_singular_tolerance) {
     int num_sols = 0;
+    if (wrist_singular_tolerance < 0.0)
+      wrist_singular_tolerance = ZERO_THRESH;
     double T02 = -*T; T++; double T00 =  *T; T++; double T01 =  *T; T++; double T03 = -*T; T++; 
     double T12 = -*T; T++; double T10 =  *T; T++; double T11 =  *T; T++; double T13 = -*T; T++; 
     double T22 =  *T; T++; double T20 = -*T; T++; double T21 = -*T; T++; double T23 =  *T;
@@ -291,11 +295,13 @@ namespace ur_kinematics {
         q1[0] = arccos;
         q1[1] = 2.0*PI - arccos;
       }
-      else if(d4*d4 > R) {
+      else if(d4*d4 > R && fabs(d4) > (1.0 + domain_tolerance) * sqrt(R)) {
         return num_sols;
       }
       else {
-        double arccos = acos(d4 / sqrt(R)) ;
+        double arccos = acos(std::min(1.0, fabs(d4) / sqrt(R))) ;
+        if (d4 < 0.0)
+          arccos = PI - arccos;
         double arctan = atan2(-B, A);
         double pos = arccos + arctan;
         double neg = -arccos + arctan;
@@ -325,6 +331,8 @@ namespace ur_kinematics {
           div = SIGN(numer) * SIGN(d6);
         else
           div = numer / d6;
+        if (fabs(div) > 1.0 && fabs(div) <= 1.0 + domain_tolerance)
+          div = SIGN(div);
         double arccos = acos(div);
         q5[i][0] = arccos;
         q5[i][1] = 2.0*PI - arccos;
@@ -339,7 +347,7 @@ namespace ur_kinematics {
           double c5 = cos(q5[i][j]), s5 = sin(q5[i][j]);
           double q6;
           ////////////////////////////// wrist 3 joint (q6) //////////////////////////////
-          if(fabs(s5) < ZERO_THRESH)
+          if(fabs(s5) < wrist_singular_tolerance)
             q6 = q6_des;
           else {
             q6 = atan2(SIGN(s5)*-(T01*s1 - T11*c1), 
@@ -361,7 +369,7 @@ namespace ur_kinematics {
           double p13y = T23 - d1 - d6*T22 + d5*(T21*c6 + T20*s6);
 
           double c3 = (p13x*p13x + p13y*p13y - a2*a2 - a3*a3) / (2.0*a2*a3);
-          if(fabs(fabs(c3) - 1.0) < ZERO_THRESH)
+          if(fabs(fabs(c3) - 1.0) < ZERO_THRESH || (fabs(c3) > 1.0 && fabs(c3) <= 1.0 + domain_tolerance))
             c3 = SIGN(c3);
           else if(fabs(c3) > 1.0) {
             // TODO NO SOLUTION

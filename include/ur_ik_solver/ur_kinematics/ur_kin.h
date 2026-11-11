@@ -70,7 +70,11 @@ namespace ur_kinematics {
   // @param q6_des  An optional parameter which designates what the q6 value should take
   //                in case of an infinite solution on that joint.
   // @return        Number of solutions found (maximum of 8)
-  int inverse(const double* T, double* q_sols, double q6_des=0.0);
+  // domain_tolerance: arguments of acos/asin out of [-1, 1] by less than this are clamped to the
+  //   border instead of discarding the solution (approximate seeds for a refinement, 0: exact only).
+  // wrist_singular_tolerance: |sin(q5)| below this is treated as a wrist singularity, q6 = q6_des.
+  int inverse(const double* T, double* q_sols, double q6_des=0.0, double domain_tolerance=0.0,
+              double wrist_singular_tolerance=-1.0);
 };
 
 #endif //UR_KIN_H
